@@ -1,0 +1,20 @@
+{
+  "name": "nuxt-charts",
+  "version": "1.0.0",
+  "description": "My swell Nuxt.js project",
+  "author": "matheusagnus",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.5.4",
+    "chart.js": "^2.8.0",
+    "hchs-vue-charts": "^1.2.8",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {}
+}
