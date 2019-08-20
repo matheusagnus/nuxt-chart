@@ -1,11 +1,11 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h2 class="card-title">Bar</h2>
+      <h2 class="card-title">Vendas por Etapa</h2>
     </div>
 
     <div class="card-img-bottom">
-      <canvas id="fooCanvas" count="2" />
+      <canvas id="fooCanvas" count="3" />
 
       <chartjs-bar
         v-for="(item, index) in types"
@@ -17,6 +17,8 @@
         :data="item.data"
         :datalabel="item.dataLabel"
         :labels="labels"
+        :option="myoptions"
+        :tooltip="mytooltip"
         target="fooCanvas"
       />
     </div>
@@ -28,21 +30,38 @@ export default {
   data() {
     return {
       beginZero: true,
-      labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
       types: [
         {
-          bgColor: "#de98ab",
-          borderColor: "0c0306",
-          data: [1, 3, 5, 7, 2, 4, 6],
-          dataLabel: "Bar"
+          bgColor: "#5eff69",
+          borderColor: "#00c40d",
+          data: [220, 379, 208, 379, 220, 522, 800],
+          dataLabel: "Aprovadas"
         },
         {
-          bgColor: "#98ddde",
-          borderColor: "030c0c",
-          data: [1, 5, 2, 6, 3, 7, 4],
-          dataLabel: "Baz"
+          bgColor: "#6e6868",
+          borderColor: "#000000",
+          data: [30, 21, 134, 30, 21, 12, 40],
+          dataLabel: "Canceladas"
+        },
+        {
+          bgColor: '#ff5c5c',
+          borderColor: '#8f0000',
+          data: [41, 26, 132, 26, 8, 36,695],
+          dataLabel: 'Recusadas'
         }
-      ]
+      ],
+      myoptions: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              callback: function(value, index, values) {
+                return 'R$ ' + value;
+              }
+            }
+          }]
+        }
+      },
     };
   }
 };
